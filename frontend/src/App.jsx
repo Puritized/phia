@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import StudentDashboard from "./pages/StudentDashboard";
 import ResultPage from "./pages/ResultPage";
 import PaymentPage from "./pages/PaymentPage";
-import VerifyPayment from "./pages/VerifyPayment";
+import VerifyPayment from "./pages/VerifyPayment"; // ✅ Added import
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageUsers from "./pages/admin/ManageUsers";
 import ManageResults from "./pages/admin/ManageResults";
@@ -27,6 +27,7 @@ function App() {
           {/* ===== PUBLIC ROUTES ===== */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verify-payment" element={<VerifyPayment />} /> {/* ✅ Added route here */}
 
           {/* ===== STUDENT ROUTES ===== */}
           <Route
@@ -53,9 +54,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
-          {/* ===== PAYMENT VERIFICATION ===== */}
-          <Route path="/verify-payment" element={<VerifyPayment />} />
 
           {/* ===== ADMIN ROUTES ===== */}
           <Route
@@ -92,10 +90,7 @@ function App() {
           />
 
           {/* ===== DEFAULT / CATCH-ALL ===== */}
-          <Route
-            path="*"
-            element={<Login />} // Redirect unknown routes to login
-          />
+          <Route path="*" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
